@@ -1,8 +1,6 @@
-const { createElement } = require("react");
-
 document.addEventListener('DOMContentLoaded', () => {
 //    const quizContainer = document.querySelector('#quiz-container');
-   const questionContainer = documnet.querySelector("#question-container");
+   const questionContainer = document.querySelector("#question-container");
    const  questionText = document.querySelector("#question-text");
    const optionList = document.querySelector("#option-list");
    const resultContainer = document.querySelector("#result-container");
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const startButton = document.querySelector("#start-button");
    const nextButton = document.querySelector("#next-button");
 
-   const question = [
+   const questions = [
     {
         question:"What is the capital of France?",
         options: ["Paris", "London", "Berlin", "Madrid"],
@@ -19,12 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       question: "Which planet is known as the Red Planet?",
-      choices: ["Mars", "Venus", "Jupiter", "Saturn"],
+      options: ["Mars", "Venus", "Jupiter", "Saturn"],
       answer: "Mars",
     },
     {
       question: "Who wrote 'Hamlet'?",
-      choices: ["Charles Dickens","Jane Austen","William Shakespeare","Mark Twain"],
+      options: ["Charles Dickens","Jane Austen","William Shakespeare","Mark Twain"],
       answer: "William Shakespeare",
     },
    ];
@@ -42,5 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     showQuestion();
    }
 
-   
+   function showQuestion(){
+    questionText.textContent = questions[currentQuestionIndex].question;
+    questions[currentQuestionIndex].options.forEach(element =>{
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${element}`; //don't use element.option element itself is each value looping through the option array.
+        optionList.appendChild(listItem);
+        // nextButton.classList.remove('hidden');
+    })
+   }
 })
