@@ -1,3 +1,5 @@
+const { createElement } = require("react");
+
 document.addEventListener('DOMContentLoaded', () => {
 //    const quizContainer = document.querySelector('#quiz-container');
    const questionContainer = documnet.querySelector("#question-container");
@@ -30,6 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
    let currentQuestionIndex = 0; //It's always good to keep the track of each question
    let score = 0;
 
+
+   startButton.addEventListener('click', startQuiz); //don't do startQuiz() cause it will immediately run the function we are passing the reference so when someone click only then it run. explain?
+
+   function startQuiz(currentQuestionIndex){
+    questionContainer.classList.remove("hidden");
+    resultContainer.classList.add("hidden");
+    startButton.classList.add("hidden");
+    showQuestion();
+   }
 
    
 })
