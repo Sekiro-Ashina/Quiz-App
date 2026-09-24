@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function nextQuestion(){
     currentQuestionIndex++;
+    nextButton.classList.add('hidden');
     if(currentQuestionIndex < questions.length){
       showQuestion();
     }
@@ -88,4 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     resultContainer.classList.add('hidden');
     startQuiz();
   }
+
+
 })
