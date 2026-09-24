@@ -81,5 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
     totalScore.textContent = `Total-Score = ${score}`;
   }
 
- 
+  restartButton.addEventListener('click', restartQuiz);
+  function restartQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    resultContainer.classList.add('hidden');
+    startQuiz();
+  }
 })
