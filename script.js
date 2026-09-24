@@ -42,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
    function showQuestion(){
     questionText.textContent = questions[currentQuestionIndex].question;
-    questions[currentQuestionIndex].options.forEach(element =>{
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `${element}`; //don't use element.option element itself is each value looping through the option array.
+    optionList.innerHTML = ""; //if you don't do this then prev list will also be visible.
+    questions[currentQuestionIndex].options.forEach(element =>{ 
+      const listItem = document.createElement('li');
+        listItem.innerHTML = `${element}`; //don't use element.option as element itself is each value looping through the option array.
         optionList.appendChild(listItem);
         // nextButton.classList.remove('hidden');
 
@@ -58,7 +59,20 @@ document.addEventListener('DOMContentLoaded', () => {
       score++;
     } 
     nextButton.classList.remove("hidden");
-   }
+  }
+
+  //once the first Question is showed will move to next
+  nextButton.addEventListener('click', nextQuestion);
+
+  function nextQuestion(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+      showQuestion();
+    }
+    else{
+      showResult();
+    }
+  }
 
 
 })
