@@ -40,5 +40,25 @@ document.addEventListener('DOMContentLoaded', () => {
     showQuestion();
    }
 
-   
+   function showQuestion(){
+    questionText.textContent = questions[currentQuestionIndex].question;
+    questions[currentQuestionIndex].options.forEach(element =>{
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${element}`; //don't use element.option element itself is each value looping through the option array.
+        optionList.appendChild(listItem);
+        // nextButton.classList.remove('hidden');
+
+        listItem.addEventListener('click', () => checkAnswer(element)); //if you use checkAnswer(element) it will immediately execute that, we want it to execute only when someone clicks on it. So in that case use call back. explain.
+    })
+   }
+
+   function checkAnswer(element){
+    const answer = questions[currentQuestionIndex].answer;
+    if(element === answer){
+      score++;
+    } 
+    nextButton.classList.remove("hidden");
+   }
+
+
 })
