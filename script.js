@@ -74,5 +74,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function showResult(){
+    nextButton.classList.add('hidden');
+    questionContainer.classList.add("hidden");
+    resultContainer.classList.remove("hidden");
+    totalScore.textContent = `Total-Score = ${score}`;
+  }
 
+ 
 })
