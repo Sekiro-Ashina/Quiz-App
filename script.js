@@ -40,13 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
     showQuestion();
    }
 
-   function showQuestion(){
-    questionText.textContent = questions[currentQuestionIndex].question;
-    questions[currentQuestionIndex].options.forEach(element =>{
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `${element}`; //don't use element.option element itself is each value looping through the option array.
-        optionList.appendChild(listItem);
-        // nextButton.classList.remove('hidden');
-    })
-   }
+   
 })
